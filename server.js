@@ -30,8 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "https://massoudnet.vercel.app/",
-  "https://massoudnet.vercel.app/", // your Vercel frontend
+  "https://massoudnet.vercel.app", // ✅ fixed (no slash)
 ];
 
 app.use(
