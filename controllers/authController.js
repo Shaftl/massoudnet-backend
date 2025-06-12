@@ -174,8 +174,8 @@ exports.verifyEmail = async (req, res) => {
 
     res.cookie("token", authToken, {
       httpOnly: true,
-      secure: false, // set to true if using HTTPS
-      sameSite: "lax",
+      secure: true, // ✅ Secure cookie over HTTPS (Render uses HTTPS)
+      sameSite: "None", // ✅ Allow cross-origin cookie
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
