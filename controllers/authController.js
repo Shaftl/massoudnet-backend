@@ -38,8 +38,8 @@ exports.login = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // Set true if HTTPS
-      sameSite: "lax",
+      secure: true, // ✅ Secure cookie over HTTPS (Render uses HTTPS)
+      sameSite: "None", // ✅ Allow cross-origin cookie
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 

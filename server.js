@@ -28,7 +28,24 @@ const io = new Server(server, {
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://massoudnet-frontend.vercel.app", // your Vercel frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 // Mount Routes
 app.use("/api/auth", authRoutes);
