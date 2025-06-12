@@ -20,7 +20,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://massoudnet.vercel.app",
     credentials: true,
   },
 });
@@ -30,8 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "http://localhost:3000",
-  "https://massoudnet-frontend.vercel.app", // your Vercel frontend
+  "https://massoudnet.vercel.app/",
+  "https://massoudnet.vercel.app/", // your Vercel frontend
 ];
 
 app.use(
