@@ -73,6 +73,11 @@ app.get("/api/ping", (req, res) => {
   res.status(200).send("pong");
 });
 
+app.get("/", (req, res) => {
+  res.send("🚀 MassoudNet Backend is up!");
+});
+
+
 // MongoDB Connect & Start Server
 mongoose
   .connect(process.env.MONGO_URI)
