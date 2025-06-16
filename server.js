@@ -69,6 +69,10 @@ app.use("/api/groups", groupRoutes);
 const feedRoutes = require("./routes/feedRoutes");
 app.use("/api/feed", feedRoutes);
 
+app.get("/api/ping", (req, res) => {
+  res.status(200).send("pong");
+});
+
 // MongoDB Connect & Start Server
 mongoose
   .connect(process.env.MONGO_URI)
